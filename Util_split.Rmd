@@ -59,8 +59,8 @@ downstairs_pp<-downstairs/2
 
 #Print mabths 
 
-paste("The bill amount per person upstairs is $", upstairs_pp,sep="")
-paste("The bill amount per person downstairs is $", downstairs_pp,sep="")
+paste("The bill amount per person upstairs is $", format(round(upstairs_pp, 2), nsmall = 2),sep="")
+paste("The bill amount per person downstairs is $",format(round(downstairs_pp, 2), nsmall = 2) ,sep="")
 
 
 
