@@ -25,8 +25,11 @@ while(!bill[index,]== 0){
     break
   }
 total<-sum(bill)
-upstairs<-total*5/7
-downstairs<-total*2/7
+up_num<-as.numeric(readline(prompt="Enter the number of persons upstairs: "))
+dn_num<-as.numeric(readline(prompt="Enter the number of persons downstairs: "))
+tot=sum(up_num)+sum(dn_num)
+upstairs<-total*up_num/tot
+downstairs<-total*dn_num/tot
 
 
 #Bill amounts for the upper unit only to be input
@@ -40,7 +43,7 @@ while(!bill_u[index_up,]== 0){
     break
 }
 upstairs<-sum(upstairs)+sum(bill_u)
-upstairs_pp<-upstairs/5
+upstairs_pp<-upstairs/up_num
 
 
 #Bill amounts for the lower unit only to be input
@@ -54,7 +57,7 @@ while(!bill_d[index_d,]== 0){
     break
 }
 downstairs<-sum(downstairs)+sum(bill_d)
-downstairs_pp<-downstairs/2
+downstairs_pp<-downstairs/dn_num
 
 
 #Print mabths 
