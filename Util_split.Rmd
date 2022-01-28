@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 
 
+
 #Enter the bill amounts to be shared by the full house
 
 bill<-data.frame(as.numeric(readline(prompt="Enter the bill amount to be shared by the whole house, Enter 0 when all amounts are input:  ")))
