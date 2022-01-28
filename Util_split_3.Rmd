@@ -65,6 +65,9 @@ downstairs_pp<-downstairs/dn_num
 paste("The bill amount per person upstairs is $", format(round(upstairs_pp, 2), nsmall = 2),sep="")
 paste("The bill amount per person downstairs is $",format(round(downstairs_pp, 2), nsmall = 2) ,sep="")
 
+rent<-as.data.frame(c(downstairs,downstairs_pp,upstairs,upstairs_pp))
+row.names(rent)<-c("Downstairs Total","Per Person Downstairs","Upstairs","Per Person Upstairs")
+colnames(rent)<-c("Dollars")
 
 
 ```
