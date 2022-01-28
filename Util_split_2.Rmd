@@ -1,0 +1,67 @@
+---
+title: "Util_split_2"
+author: "Schlemmer"
+date: "1/27/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{R}
+library(tidyverse)
+
+
+
+#Enter the bill amounts to be shared by the full house
+
+bill<-data.frame(as.numeric(readline(prompt="Enter the bill amount to be shared by the whole house, Enter 0 when all amounts are input:  ")))
+index<-nrow(bill)
+while(!bill[index,]== 0){
+   bill<-rbind(bill,as.numeric(readline(prompt="Enter next bill amount to be shared by the whole house, Enter 0 when all amounts are input:  ")))
+   index<-nrow(bill)
+   if(bill[index,]==0)
+    break
+  }
+total<-sum(bill)
+upstairs<-total*4/7
+downstairs<-total*3/7
+
+
+#Bill amounts for the upper unit only to be input
+
+bill_u<-data.frame(as.numeric(readline(prompt="Enter any bill amount for Upstairs only, Enter 0 when all amounts are input:  ")))
+index_up<-nrow(bill_u)
+while(!bill_u[index_up,]== 0){
+   bill_u<-rbind(bill_u,as.numeric(readline(prompt="Enter next bill amount for Upstairs only, Enter 0 when all amounts are input:  ")))
+   index_up<-nrow(bill_u)
+   if(bill_u[index_up,]==0)
+    break
+}
+upstairs<-sum(upstairs)+sum(bill_u)
+upstairs_pp<-upstairs/4
+
+
+#Bill amounts for the lower unit only to be input
+
+bill_d<-data.frame(as.numeric(readline(prompt="Enter any bill amount for Downstairs only, Enter 0 when all amounts are input:  ")))
+index_d<-nrow(bill_d)
+while(!bill_d[index_d,]== 0){
+   bill_d<-rbind(bill_d,as.numeric(readline(prompt="Enter next bill amount for Downstairs only, Enter 0 when all amounts are input:  ")))
+   index_up<-nrow(bill_d)
+   if(bill_d[index_up,]==0)
+    break
+}
+downstairs<-sum(downstairs)+sum(bill_d)
+downstairs_pp<-downstairs/3
+
+
+#Print mabths 
+
+paste("The bill amount per person upstairs is $", format(round(upstairs_pp, 2), nsmall = 2),sep="")
+paste("The bill amount per person downstairs is $",format(round(downstairs_pp, 2), nsmall = 2) ,sep="")
+
+
+
+```
